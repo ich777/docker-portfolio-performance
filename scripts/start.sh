@@ -29,8 +29,8 @@ chown -R ${UID}:${GID} ${DATA_DIR}
 
 echo "---Starting...---"
 term_handler() {
-	kill -SIGTERM "$(pidof Enpass)"
-	tail --pid="$(pidof Enpass)" -f 2>/dev/null
+	kill -SIGTERM "$(pidof PortfolioPerformance)"
+	tail --pid="$(pidof PortfolioPerformance)" -f 2>/dev/null
 	exit 143;
 }
 
