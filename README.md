@@ -5,6 +5,8 @@ Portfolio Performance is an open source tool to calculate the overall performanc
 
 **ATTENTION:** Please save your documents only in the Home directory! Please don't save or modify anything inside the 'bin' and 'runtime' folders.
 
+**INFO:** If the last view is not saved accross container restarts it is recommended to exit the container once after you've configured it to your likings through the WebGUI by clicking File -> Quit, this will ensure that the last view is saved properly.
+
 ## Env params
 | Name | Value | Example |
 | --- | --- | --- |
