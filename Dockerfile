@@ -7,11 +7,15 @@ RUN export TZ=Europe/Rome && \
 	apt-get update && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
-	sed -i '/    document.title =/c\    document.title = "Portfolio - noVNC";' /usr/share/novnc/app/ui.js && \
+	apt-get -y install --no-install-recommends jq dbus-x11 libswt-gtk-4-jni libswt-gtk-4-java && \
+	rm -rf /var/lib/apt/lists/* && \
+	sed -i '/    document.title =/c\    document.title = "Portfolio-Performance - noVNC";' /usr/share/novnc/app/ui.js && \
 	rm /usr/share/novnc/app/images/icons/*
 
 
 ENV DATA_DIR=/portfolio
+ENV RUNTIME_NAME="jre17"
+ENV JRE_URL="https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz"
 ENV CUSTOM_RES_W=1024
 ENV CUSTOM_RES_H=768
 ENV CUSTOM_DEPTH=16
