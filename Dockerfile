@@ -1,7 +1,7 @@
 FROM ich777/novnc-baseimage
 
 LABEL org.opencontainers.image.authors="admin@minenet.at"
-LABEL org.opencontainers.image.source="https://github.com/ich777/docker-enpass"
+LABEL org.opencontainers.image.source="https://github.com/ich777/docker-portfolio-performance"
 
 RUN export TZ=Europe/Rome && \
 	apt-get update && \
