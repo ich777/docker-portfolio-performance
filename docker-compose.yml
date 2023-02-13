@@ -1,0 +1,16 @@
+version: '3'
+services:
+  PortfolioPerformance:
+    image: ich777/portfolio-performance
+    ports:
+      - 8080:8080
+    environment:
+      - CUSTOM_RES_W=1280
+      - CUSTOM_RES_W=1024
+      - UMASK=0000
+      - UID=99
+      - GID=100
+      - TZ="Europe/Berlin"
+    restart: unless-stopped
+    volumes:
+      - /root/portfolio/data:/portfolio/data
