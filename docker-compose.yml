@@ -13,4 +13,4 @@ services:
       - TZ="Europe/Berlin"
     restart: unless-stopped
     volumes:
-      - /root/portfolio/data:/opt/portfolio/workspace
+      - /root/portfolio/data:/portfolio/data
