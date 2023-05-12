@@ -54,6 +54,7 @@ if [ -z "$CUR_V" ]; then
   touch ${DATA_DIR}/bin/instv$LAT_V
 elif [ "$CUR_V" != "$LAT_V" ]; then
   echo "---Version missmatch, installed v$CUR_V, downloading and installing latest v$LAT_V...---"
+  cp ${DATA_DIR}/bin/configuration/config.ini /tmp/config.ini
   rm -rf ${DATA_DIR}/bin
   mkdir -p ${DATA_DIR}/bin
   cd ${DATA_DIR}/bin
@@ -65,7 +66,11 @@ elif [ "$CUR_V" != "$LAT_V" ]; then
     sleep infinity
   fi
   tar -C ${DATA_DIR}/bin --strip-components=1 -xf ${DATA_DIR}/bin/PP-v$LAT_V.tar.gz
-  rm -rf ${DATA_DIR}/bin/PP-v$LAT_V.tar.gz
+  if [ ! -d ${DATA_DIR}/bin/configuration ]; then
+    mkdir -p ${DATA_DIR}/bin/configuration
+  fi
+  cp /tmp/config.ini ${DATA_DIR}/bin/configuration/config.ini
+  rm -rf ${DATA_DIR}/bin/PP-v$LAT_V.tar.gz /tmp/config.ini
   touch ${DATA_DIR}/bin/instv$LAT_V
 elif [ "$CUR_V" == "$LAT_V" ]; then
   echo "---Portfolio-Performance v$CUR_V up-to-date---"
