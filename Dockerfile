@@ -14,8 +14,8 @@ RUN export TZ=Europe/Rome && \
 
 
 ENV DATA_DIR=/portfolio
-ENV RUNTIME_NAME="jre17"
-ENV JRE_URL="https://github.com/AdoptOpenJDK/openjdk17-binaries/releases/download/jdk-2021-05-07-13-31/OpenJDK-jdk_x64_linux_hotspot_2021-05-06-23-30.tar.gz"
+ENV RUNTIME_NAME="jre21"
+ENV JRE_URL="https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz"
 ENV CUSTOM_RES_W=1024
 ENV CUSTOM_RES_H=768
 ENV CUSTOM_DEPTH=16
