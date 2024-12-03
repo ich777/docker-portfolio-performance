@@ -18,10 +18,11 @@ if [ -z "$LAT_V" ]; then
 fi
 
 echo "---Checking if Runtime is installed---"
-if [ -z "$(find ${DATA_DIR}/runtime -name jre* 2>/dev/null)" ]; then
+if [ -z "$(find ${DATA_DIR}/runtime -name ${RUNTIME_NAME} 2>/dev/null)" ]; then
   echo "---Downloading and installing ${RUNTIME_NAME}---"
   mkdir -p ${DATA_DIR}/runtime
   cd ${DATA_DIR}/runtime
+  rm -rf $(ls ${DATA_DIR}/runtime | grep -v "${RUNTIME_NAME}")
   if wget -q -nc --show-progress --progress=bar:force:noscroll -O ${DATA_DIR}/runtime/${RUNTIME_NAME}.tar.gz "${JRE_URL}" ; then
     echo "---Successfully downloaded ${RUNTIME_NAME}!---"
   else
