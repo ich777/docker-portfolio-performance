@@ -7,7 +7,7 @@ RUN export TZ=Europe/Rome && \
 	apt-get update && \
 	ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
 	echo $TZ > /etc/timezone && \
-	apt-get -y install --no-install-recommends jq dbus-x11 libswt-gtk-4-jni libswt-gtk-4-java libwebkit2gtk-4.0-37 && \
+	apt-get -y install --no-install-recommends jq dbus-x11 libswt-gtk-4-jni libswt-gtk-4-java libwebkit2gtk-4.1-0 && \
 	rm -rf /var/lib/apt/lists/* && \
 	sed -i '/    document.title =/c\    document.title = "Portfolio-Performance - noVNC";' /usr/share/novnc/app/ui.js && \
 	rm /usr/share/novnc/app/images/icons/*
