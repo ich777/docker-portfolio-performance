@@ -3,7 +3,7 @@ export DISPLAY=:99
 export XDG_RUNTIME_DIR="/tmp/runtime-portfolio"
 export XAUTHORITY=${DATA_DIR}/.Xauthority
 
-DL_URL="$(wget -qO- https://api.github.com/repos/buchen/portfolio/releases/latest | jq -r ".assets[].browser_download_url" | grep "\-linux.gtk.x86_64.tar.gz" | grep -v "\-distro\-" | grep -v ".tar.gz.asc")"
+DL_URL="$(wget -qO- https://api.github.com/repos/buchen/portfolio/releases | jq -r '.[].assets[].browser_download_url' | grep "\-linux.gtk.x86_64.tar.gz" | grep -v "\-distro\-" | grep -v ".tar.gz.asc" | sort -V | tail -1)"
 CUR_V="$(find ${DATA_DIR}/bin -name instv* 2>/dev/null | cut -d 'v' -f2)"
 LAT_V="$(echo "$DL_URL" | cut -d '/' -f8)"
 
